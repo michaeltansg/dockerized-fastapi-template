@@ -18,6 +18,7 @@
 # debugpy.wait_for_client()
 
 from fastapi import FastAPI
+# from src.load_dotenv import API_KEY
 
 app = FastAPI()
 
