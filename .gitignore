@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# .devcontainer
+.devcontainer/
+
 # logs folder
 logs/
 

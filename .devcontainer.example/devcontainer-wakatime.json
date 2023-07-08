@@ -10,8 +10,13 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.pylint",
-				"ms-python.black-formatter"
-			]
+				"ms-python.black-formatter",
+				"GitHub.copilot",
+				"WakaTime.vscode-wakatime"
+			],
+			"settings": {
+				"wakatime.apiKey": "${WAKATIME_API_KEY}"
+			}
 		}
 	}
 }
