@@ -15,6 +15,9 @@
 				"WakaTime.vscode-wakatime"
 			],
 			"settings": {
+				"files.exclude": {
+					"**/__pycache__": true
+				},
 				"wakatime.apiKey": "${WAKATIME_API_KEY}"
 			}
 		}
