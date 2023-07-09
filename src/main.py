@@ -1,7 +1,7 @@
 """ Main module - Entry point """
 
 # import logging
-# from src.custom_logger import CustomLogger
+# from custom_logger import CustomLogger
 #
 # CustomLogger.log_level = logging.WARNING # Set the level for logging. Default is logging.INFO
 #
@@ -18,7 +18,7 @@
 # debugpy.wait_for_client()
 
 from fastapi import FastAPI
-# from src.load_dotenv import API_KEY
+# from load_dotenv import API_KEY
 
 app = FastAPI()
 

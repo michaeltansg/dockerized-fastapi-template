@@ -15,7 +15,7 @@ class CustomLogger:
         """
         Examples:
 
-        from src.custom_logger import CustomLogger
+        from custom_logger import CustomLogger
 
         logger = CustomLogger.setup_logger(__name__)
         logger.info('This is an info message')
