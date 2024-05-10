@@ -1,7 +1,6 @@
 # pylint: disable=all
 from fastapi import APIRouter, Request
 from datetime import datetime, timezone
-from uuid import UUID
 from tags import Tags
 from models.health_check_response import HealthCheckResponse
 
@@ -16,5 +15,5 @@ health_router = APIRouter(tags=[Tags.HEALTH])
 )
 async def get_health(request: Request) -> HealthCheckResponse:
     ms = int((datetime.now(timezone.utc) - datetime(1970, 1, 1, tzinfo=timezone.utc)).total_seconds() * 1000)
-    res = HealthCheckResponse(correlation_id=UUID(request.state.correlation_id), now=ms)
+    res = HealthCheckResponse(now=ms)
     return res
