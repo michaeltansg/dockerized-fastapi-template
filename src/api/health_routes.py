@@ -1,19 +1,11 @@
 # pylint: disable=all
 from fastapi import APIRouter, Request
-from uuid import UUID
-from pydantic import BaseModel, Field
 from datetime import datetime, timezone
+from uuid import UUID
 from tags import Tags
+from models.health_check_response import HealthCheckResponse
 
 health_router = APIRouter(tags=[Tags.HEALTH])
-
-class HealthCheckResponse(BaseModel):
-    correlation_id: UUID = Field(
-        description="The correlation id of the request.",
-    )
-    now: int = Field(
-        description="The Unix epoch is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT).",
-    )
 
 @health_router.get(
     "/",

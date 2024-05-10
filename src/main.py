@@ -1,10 +1,6 @@
 """ Main module - Entry point """
 
 import logging
-# import debugpy
-# debugpy.listen(("0.0.0.0", 5678))
-# print("Waiting for client to attach...")
-# debugpy.wait_for_client()
 
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
@@ -15,6 +11,9 @@ from custom_logger import CustomLogger
 # from load_dotenv import API_KEY
 from tags import Tags
 from core.middleware.cors import add_cors_middleware
+
+# Local application/library specific imports
+# import utils.init_debugger # uncomment this line to enable debugging
 from api.health_routes import health_router
 
 CustomLogger.log_level = logging.WARNING # Set the level for logging. Default is logging.INFO
