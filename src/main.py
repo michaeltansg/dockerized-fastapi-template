@@ -5,6 +5,7 @@ import logging
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.middleware.gzip import GZipMiddleware
 
 from custom_logger import CustomLogger
 
@@ -16,7 +17,7 @@ from core.middleware.cors import add_cors_middleware
 # import utils.init_debugger # uncomment this line to enable debugging
 from api.health_routes import health_router
 
-CustomLogger.log_level = logging.WARNING # Set the level for logging. Default is logging.INFO
+# CustomLogger.log_level = logging.WARNING # Set the level for logging. Default is logging.INFO
 
 logger = CustomLogger.setup_logger(__name__)
 # logger = CustomLogger.setup_logger(__name__, 'file.log')
@@ -33,6 +34,9 @@ app = FastAPI(root_path="/api", openapi_tags=tags_metadata)
 
 # Register middleware
 add_cors_middleware(app)
+
+# Add GZip middleware to the application
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Add Routers
 app.include_router(health_router, prefix="/health")

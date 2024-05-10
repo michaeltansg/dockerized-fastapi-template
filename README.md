@@ -23,3 +23,12 @@ The project is being watched for changes and any saved modifications will cause 
 
 To create an image for distribution, modify the `Dockerfile` (if required) and then execute: `docker build -t app_name:latest .`
 
+---
+
+To install python packages on host:
+```bash
+python -m venv venv;. venv/bin/activate; pip install -U pip
+pip install -r requirements.txt
+```
+
+If more packages are added to requirements.txt, execute the following: `docker compose up --build -d` to rebuild the docker image and start a new container.
