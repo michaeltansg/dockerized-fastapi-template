@@ -41,6 +41,11 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 # Add Routers
 app.include_router(health_router, prefix="/health")
 
+@app.on_event("startup")
+async def startup_event():
+    pass
+
+
 @app.exception_handler(HTTPException)
 async def http_exception_handler(_, exc):
     """
